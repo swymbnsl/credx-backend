@@ -39,7 +39,7 @@ def predict():
         stdout, stderr = process.communicate()
         if stderr:
             print(f"Error running Python script: {stderr}")
-            return jsonify({"prediction": "error predicting results"}), 500
+            return jsonify({"prediction": "error predicting results", "stderror": stderr}), 500
 
         print(stdout)
         # Assuming the prediction is on the third line
