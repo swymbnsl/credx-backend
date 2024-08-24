@@ -19,7 +19,7 @@ def install_dependencies():
     except subprocess.CalledProcessError as error:
         print(f"Error installing Python dependencies: {error.output.decode()}")
 
-# install_dependencies()
+install_dependencies()
 
 @app.route('/predict', methods=['POST'])
 def predict():
