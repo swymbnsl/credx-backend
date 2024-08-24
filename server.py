@@ -48,7 +48,7 @@ def predict():
         return jsonify({"prediction": prediction, "probability" : probability})
     except Exception as e:
         print(e)
-        return jsonify({"prediction": "error predicting results"}), 500
+        return jsonify({"prediction": "error predicting results", "error": e}), 500
 
 if __name__ == '__main__':
     port = 3000
