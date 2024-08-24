@@ -29,6 +29,8 @@ def predict():
     # Save input data to a temporary file if needed
     input_json = json.dumps(input_data,separators=(',', ':'))
 
+    print(input_json)
+
     try:
         process = Popen(
             ['python', 'predict.py', input_json],
@@ -43,13 +45,13 @@ def predict():
 
         print(stdout)
         # Assuming the prediction is on the third line
-        probability = stdout.splitlines()[0] if len(stdout.splitlines()) > 1 else "Error"
-        prediction = stdout.splitlines()[1] if len(stdout.splitlines()) > 1 else "Error"
+        prediction = stdout.splitlines()[0] if len(stdout.splitlines()) > 1 else "Error"
+        probability = stdout.splitlines()[1] if len(stdout.splitlines()) > 1 else "Error"
         return jsonify({"prediction": prediction, "probability" : probability})
     except Exception as e:
         print(e)
         return jsonify({"prediction": "error predicting results", "error": e}), 500
 
 if __name__ == '__main__':
-    port = 3000
+    port = 3001
     app.run(host='0.0.0.0',port=port, debug=True)

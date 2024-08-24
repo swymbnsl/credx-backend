@@ -7,6 +7,7 @@ import numpy as np
 # Load the input data from the command line argument
 input_data = json.loads(sys.argv[1])
 
+
 # Load the trained model
 model = joblib.load('credx_model.pkl')
 
