@@ -12,7 +12,13 @@ def install_dependencies():
     print("Installing libraries")
     try:
         result = subprocess.check_output(
-            ["pip", "install", "numpy", "pandas", "joblib", "scikit-learn"],
+            [
+                "pip", "install",
+                "numpy",
+                "pandas",
+                "joblib",
+                "scikit-learn==1.5.1"
+            ],
             stderr=subprocess.STDOUT
         )
         print(f"Python dependencies installed: {result.decode()}")
