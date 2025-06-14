@@ -51,6 +51,14 @@ def predict():
     except Exception as e:
         print(e)
         return jsonify({"prediction": "error predicting results", "error": e}), 500
+    
+@app.route('/')
+def home():
+    return jsonify({"status": "Server is running", "available_endpoints": ["/predict"]})
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
 
 if __name__ == '__main__':
     port = 3001
